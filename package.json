@@ -34,7 +34,8 @@
   },
   "dependencies": {
     "react": "^16.14.0",
-    "react-dom": "^16.14.0"
+    "react-dom": "^16.14.0",
+    "styled-components": "^5.3.5"
   },
   "standard": {
     "ignore": [
