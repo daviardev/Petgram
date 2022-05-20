@@ -34,6 +34,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     #app {
+        overflow: scroll;
         overflow-x: hidden;
         height: 580px;
         padding-bottom: 10px;
@@ -41,6 +42,9 @@ export const GlobalStyle = createGlobalStyle`
         background-color: #fefefe;
         border-radius: 5px;
         margin: 0 auto;
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 
     #phone {
