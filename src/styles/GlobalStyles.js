@@ -1,13 +1,20 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Roboto:wght@400;700&display=swap');
+
     html {
         box-sizing: border-box;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-family: 'Poppins', sans-serif;
     }
         
     *, *::before, *::after {
         box-sizing: inherit;
+    }
+
+    a {
+        text-decoration: none;
     }
         
     ul, li, h1, h2, h3, p, button {
@@ -52,5 +59,5 @@ export const GlobalStyle = createGlobalStyle`
         &::-webkit-scrollbar {
             display: none;
         }
-    }   
+    }
 `
