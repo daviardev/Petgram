@@ -11,11 +11,30 @@ export const ListOfCategories = ()=>{
       setCategories(response)
     })
   }, [])
-  return (
-    <List>
+  const [showFixed, setShowFixed] = useState(false)
+
+  useEffect(()=>{
+    const onScroll = e => {
+      const newShowFixed = window.scrollY > 100
+      console.log(newShowFixed)
+      showFixed !== newShowFixed && setShowFixed(newShowFixed)
+    }
+
+    document.addEventListener('scroll', onScroll)
+  })
+
+  const renderList = (fixed) => (
+    <List className={fixed ? 'fixed' : ''}>
       {
         categories.map(category=><Item key={category.id}><Category {...category} /></Item>)
       }
     </List>
+  )
+
+  return (
+    <>
+      {renderList()}
+      {showFixed && renderList(true)}
+    </>
   )
 }

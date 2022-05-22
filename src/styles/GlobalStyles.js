@@ -31,49 +31,26 @@ export const GlobalStyle = createGlobalStyle`
         max-width: 500px;
         overscroll-behavior: none;
         width: 100%;
+        &::-webkit-scrollbar {
+            background-color: transparent;
+            width: 5px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-image: linear-gradient(#405de6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+            border-radius: 10px;
+        }
     }
 
     #app {
         overflow: scroll;
         overflow-x: hidden;
-        height: 580px;
+        min-height: 100vh;
         padding-bottom: 10px;
-        width: 330px;
-        background-color: #fefefe;
         border-radius: 5px;
+        background-color: #fefefe;
         margin: 0 auto;
         &::-webkit-scrollbar {
             display: none;
         }
-    }
-
-    #phone {
-        overflow-x: hidden;
-        width: 350px;
-        border-radius: 30px;
-        background-color: rgb(36, 36, 36);
-        margin: 20px auto;
-    }
-
-    #camera {
-        display: block;
-        width: 60px;
-        height: 8px;
-        border-radius: 20px;
-        margin-bottom: 25px;
-        background-color: rgb(107, 107, 107);
-        left: 42%;
-        position: relative;
-    }
-
-    #button_down {
-        width: 100%;
-    }
-
-    #btn_home {
-        width: 70px;
-        height: 25px;
-        display: flex;
-        border-radius: 40px;
-    }
+    }   
 `
