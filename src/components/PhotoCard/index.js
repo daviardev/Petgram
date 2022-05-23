@@ -1,10 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ImgWrapper, Img, Button, Article } from "./styles";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
 export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
     const element = useRef(null)
     const [show, setShow] = useState(false)
+    const key = `like${id}`
+    const [liked, setLiked] = useState(()=> {
+        try {
+            const like = window.localStorage.getItem(key)
+            return like
+        } catch (e) {
+            return false
+        }
+    })
+
     useEffect(()=>{
         Promise.resolve(
             typeof window.IntersectionObserver !== 'undefined'
@@ -14,7 +24,6 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
             const observer = new window.IntersectionObserver((entries)=>{
                 const { isIntersecting } = entries[0]
                 if (isIntersecting) {
-                    console.log(`si`)
                     setShow(true)
                     observer.disconnect()
                 }
@@ -22,6 +31,16 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
             observer.observe(element.current)
         })
     }, [element])
+
+    const Icon = liked ? FaHeart : FaRegHeart
+    const setLocalStorage = value => {
+        try {
+            window.localStorage.setItem(key, value)
+            setLiked(value)
+        } catch (e) {
+            console.error(e)
+        }
+    }
     
     return (
         <Article ref={element}>
@@ -32,7 +51,8 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
                     <Img src={src} /> 
                 </ImgWrapper>
             </a>
-            <Button><FaRegHeart size='22px'/> {likes} likes!</Button> 
+            <Button onClick={()=> setLocalStorage(!liked)}>
+                <Icon size='22px'/> {likes} likes!</Button>
             </>
             }
         </Article>
