@@ -3,8 +3,11 @@ import { PhotoCard } from "../PhotoCard";
 
 export const ListOfPhotoCards = () => {
     return (
+        <>
+        <br/>
         <ul>
-            {[1, 2, 3].map(id => <PhotoCard key={id}/>)}
+            {[1, 2, 3, 4, 5, 6, 7].map(id => <PhotoCard key={id}/>)}
         </ul>
+        </>
     )
 }
