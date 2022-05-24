@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { ImgWrapper, Img, Button, Article } from "./styles";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
