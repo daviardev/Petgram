@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { popDown } from '../../styles/animation'
 
 export const List = styled.ul`
     display: flex;
@@ -6,6 +7,7 @@ export const List = styled.ul`
     margin-bottom: 1rem;
     width: 100%;
     &.fixed {
+        ${popDown()}
         background-color: #fff;
         border-radius: 60px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
