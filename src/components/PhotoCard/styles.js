@@ -7,7 +7,6 @@ export const Article = styled.article`
 
 export const ImgWrapper = styled.div`
     display: block;
-    height: 0;
     overflow: scroll;
     padding: 56.25% 0 0 0;
     position: relative;

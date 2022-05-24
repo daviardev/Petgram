@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const List = styled.ul`
     display: flex;
     overflow: scroll;
+    margin-bottom: 1rem;
     width: 100%;
     &.fixed {
         background-color: #fff;
