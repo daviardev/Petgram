@@ -2,12 +2,12 @@ import React from "react";
 import { ListOfCategories } from "./components/ListOfCategories";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import { ListOfPhotoCards } from './components/ListOfPhotoCards'
+import { PhotoCardWithQuery } from "./containers/PhotoCardWithQuery";
 import { Logo } from './components/Logo'
 
 export const App = () => {
     const urlParams = new window.URLSearchParams(window.location.search)
     const detailID = urlParams.get('detail')
-    console.log(detailID)
     //En ListOfPhotoCards podemos cambiar la categoria y cambarán segun escojamos
     return (
     <div>
@@ -15,10 +15,10 @@ export const App = () => {
         <Logo />
         {
             detailID
-            ? <h1>Detail Id</h1>
+            ? <PhotoCardWithQuery id={detailID} />
             : <>
                 <ListOfCategories />
-                <ListOfPhotoCards categoryId={3} />
+                <ListOfPhotoCards categoryId={1} />
               </>
         }
     </div>
