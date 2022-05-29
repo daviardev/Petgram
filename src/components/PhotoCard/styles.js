@@ -26,12 +26,3 @@ export const Img = styled.img`
     right: 25px;
     border-radius: 10px;
 `
-
-export const Button = styled.button`
-    display: flex;
-    align-items: center;
-    padding-top: 8px;
-    & svg {
-        margin-right: 4px;
-    }
-`
