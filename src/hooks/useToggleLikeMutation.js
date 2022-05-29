@@ -1,6 +1,4 @@
-import React from 'react'
-import { Mutation } from '@apollo/client/react/components'
-import { gql } from '@apollo/client'
+import { useMutation, gql } from '@apollo/client'
 
 const LIKE_PHOTO = gql`
 mutation likeAnonymousPhoto($input: LikePhoto!) {
@@ -11,8 +9,7 @@ mutation likeAnonymousPhoto($input: LikePhoto!) {
     }
   }
 `
-export const useToggleLikeMutation = ({ children }) => {
-  return <Mutation mutation={LIKE_PHOTO}>
-    {children}
-  </Mutation>
+export const useToggleLikeMutation = () => {
+  const [mutation, { loading: mutationLoading, error: mutationError }] = useMutation(LIKE_PHOTO)
+  return { mutation, mutationLoading, mutationError }
 } 
