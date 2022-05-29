@@ -6,6 +6,7 @@ import { Router } from "@reach/router";
 import { Detail } from "./pages/Detail";
 import { NavBar } from "./components/Navbar";
 
+
 export const App = () => {
     return (
     <div>
