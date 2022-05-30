@@ -1,4 +1,5 @@
 import React from "react";
+import Context from "./Context";
 import { Router } from "@reach/router";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import { Logo } from './components/Logo'
@@ -11,11 +12,6 @@ import { NotRegisteredUser } from "./pages/NotRegisteredUser";
 
 import { NavBar } from "./components/Navbar";
 
-const UserLogged = ({ children }) => {
-//En caso sea true, dejará entrar a Favs y User sí no, no dejará entrar y pedirá registro de usuario
-    return children({ isAuth: false })
-}
-
 export const App = () => {
     return (
     <div>
@@ -26,7 +22,7 @@ export const App = () => {
             <Home path='/pet/:id' />
             <Detail path='/detail/:detailID' />
         </Router>
-            <UserLogged>
+            <Context.Consumer>
                 {
                     ({ isAuth }) =>
                         isAuth
@@ -40,7 +36,7 @@ export const App = () => {
                             <NotRegisteredUser path='/user' />
                         </Router>
                 }
-            </UserLogged>
+            </Context.Consumer>
         <NavBar />
     </div>
     )

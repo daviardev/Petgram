@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { ApolloClient, InMemoryCache, ApolloProvider, ApolloLink, from, HttpLink } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
 import { App } from './App'
+import Context from './Context';
 
 const authMiddleware = new ApolloLink((operation, forward) => {
     const token = window.sessionStorage.getItem("token");
@@ -35,6 +36,9 @@ const authMiddleware = new ApolloLink((operation, forward) => {
   })
 
 ReactDOM.render(
+<Context.Provider>
 <ApolloProvider client={client}>
     <App />
-</ApolloProvider>, document.getElementById('app'))
+</ApolloProvider>
+</Context.Provider>,
+document.getElementById('app'))
