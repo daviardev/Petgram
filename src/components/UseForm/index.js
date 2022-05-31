@@ -7,11 +7,16 @@ const SIZE = '23px'
 export const UseForm = ({ onSubmit, title }) => {
     const email = useInputValue('')
     const password = useInputValue('')
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        onSubmit({ email: email.value, password: password.value })
+    }
     return (
         <Login>
             <LoginContent>
                 <LoginForms>
-                    <Form onSubmit={onSubmit}>
+                    <Form onSubmit={handleSubmit}>
                         <H1>{ title }</H1>
 
                         <LoginBox>

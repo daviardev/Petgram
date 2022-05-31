@@ -9,7 +9,6 @@ export const H1 = styled.h1`
 
 export const Form = styled.form`
     position: absolute;
-    top: 40px;
     width: 100%;
     background-color: #f2f2f2;
     padding: 2rem 1rem;
@@ -56,8 +55,7 @@ export const LoginBox = styled.div`
 
 export const Login = styled.div`
     display: grid;
-    grid-template-columns: 100%;
-    height: 100vh;
+    height: 70vh;
     margin-left: 1.5rem;
     margin-right: 1.5rem;
 `
