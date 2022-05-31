@@ -2,12 +2,13 @@ import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
 
     html {
         box-sizing: border-box;
         scroll-behavior: smooth;
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Open Sans', sans-serif;
     }
         
     *, *::before, *::after {
