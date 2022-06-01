@@ -6,7 +6,7 @@ import { useNearScreen } from "../../hooks/useNearScreen";
 import { useToggleLikeMutation } from '../../hooks/useToggleLikeMutation'
 import { Link } from "@reach/router";
 
-const DEFAULT_IMAGE = ' '
+const DEFAULT_IMAGE = 'https://www.housesitmatch.com/wp-content/themes/petsitter/images/job-placeholder.gif'
 
 export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
     const [show, element] = useNearScreen()

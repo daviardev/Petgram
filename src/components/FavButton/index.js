@@ -1,11 +1,12 @@
 import React from "react";
-import { FaRegHeart, FaHeart } from "react-icons/fa";
-import { Button } from "./styles";
+import { FaRegHeart } from "react-icons/fa";
+import { Button, LikedButton } from "./styles";
 
 export const FavButton = ({ liked, likes, onClick }) => {
-    const Icon = liked ? FaRegHeart : FaHeart
-
-    return <Button onClick={onClick}>
-        <Icon size='32px' /> {likes} likes!
-    </Button>
-}
+    return (
+      <Button onClick={onClick}>
+        {liked ? <LikedButton size="32px" /> : <FaRegHeart size="32px" />}
+        {likes} likes!
+      </Button>
+    );
+  };

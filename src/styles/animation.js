@@ -5,7 +5,13 @@ const fadeInKeyframes = keyframes`
 `
 
 const popDownKeyFrames = keyframes`
-    50%{ transform: translateY(-30px); }
+    0%{ 
+        margin-top: -100px;
+
+    }
+    100%{
+        margin-top: 0;
+    }
 `
 
 export const fadeIn = ({ time = '0.3s', type = 'ease' } = {}) => 
@@ -13,7 +19,7 @@ export const fadeIn = ({ time = '0.3s', type = 'ease' } = {}) =>
         animation: ${time} ${fadeInKeyframes} ${type};
 `
 
-export const popDown = ({ time = '0.2s', type = 'ease' } = {}) =>
+export const popDown = ({ time = '0.4s', type = 'ease' } = {}) =>
     css`
         animation: ${time} ${popDownKeyFrames} ${type};
 `
