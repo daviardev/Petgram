@@ -25,6 +25,10 @@ export const Input = styled.input`
     font-weight: 700;
     color: white;
     background-color: #4b75ff;
+    &[disabled] {
+        opacity: .3;
+        color: red;
+    }
 `
 
 export const Button = styled.button`
@@ -39,6 +43,10 @@ export const Button = styled.button`
     transition: .3s;
     margin-left: 150px;
     text-decoration: none;
+    &[disabled] {
+        opacity: .3;
+        background-color: red;
+    }
     
 `
 
@@ -58,6 +66,31 @@ export const Login = styled.div`
     height: 70vh;
     margin-left: 1.5rem;
     margin-right: 1.5rem;
+`
+
+export const Error = styled.span`
+    display: block;
+    font-size: 14px;
+    color: red;
+    text-align: center;
+    padding: 8px 0px;
+    margin: 10px 0px 10px;
+    width: 100%;
+    border:dotted 3px #f51165;
+    -moz-border-radius-topleft: 8px;
+    -moz-border-radius-topright:8px;
+    -moz-border-radius-bottomleft:8px;
+    -moz-border-radius-bottomright:8px;
+    -webkit-border-top-left-radius:8px;
+    -webkit-border-top-right-radius:8px;
+    -webkit-border-bottom-left-radius:8px;
+    -webkit-border-bottom-right-radius:8px;
+    border-top-left-radius:8px;
+    border-top-right-radius:8px;
+    border-bottom-left-radius:8px;
+    border-bottom-right-radius:8px;
+    background-color: rgba(215, 44, 44, 0.3);
+    background: rgba(215, 44, 44, 0.3);    
 `
 
 export const LoginContent = styled.div`
