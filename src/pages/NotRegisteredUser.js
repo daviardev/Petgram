@@ -13,7 +13,10 @@ export const NotRegisteredUser = () => {
                   const onSubmit = ({email, password}) => {
                       const input = { email, password }
                       const variables = { input }
-                      registerMutation({ variables }).then(activateAuth)
+                      registerMutation({ variables }).then(({ data }) => {
+                        const {login} = data
+                        activateAuth(login)
+                      })
                   }
 
                   const errorMsgRegistro = error && 'El usuario ya existe o quizás hay algún problema'
