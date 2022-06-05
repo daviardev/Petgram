@@ -6,39 +6,40 @@ import { App } from './App'
 import Context from './Context';
 
 const authMiddleware = new ApolloLink((operation, forward) => {
-    const token = window.sessionStorage.getItem("token");
-    if (token) {
-      operation.setContext({
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      })
-    }
-    return forward(operation)
-  })
-  
-  const errorMiddleware = onError(({ networkError }) => {
-    if (networkError && networkError.result.code === "invalid_token") {
-      window.sessionStorage.removeItem("token")
-      window.location = "/"
-    }
-  });
-  
-  const client = new ApolloClient({
-    cache: new InMemoryCache(),
-    link: from([
-      errorMiddleware,
-      authMiddleware,
-      new HttpLink({
-        uri: "https://petgram-server-daxter-ivf8j1no5-daxtergd.vercel.app/graphql",
-      }),
-    ]),
-  })
+  const token = window.sessionStorage.getItem("token");
+  if (token) {
+    operation.setContext({
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    });
+  }
+  return forward(operation);
+});
+
+const errorMiddleware = onError(({ networkError }) => {
+  if (networkError && networkError.result.code === "invalid_token") {
+    window.sessionStorage.removeItem("token");
+    window.location = "/";
+  }
+});
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: from([
+    errorMiddleware,
+    authMiddleware,
+    new HttpLink({
+      uri: "https://petgram-server-daxter-ivf8j1no5-daxtergd.vercel.app/graphql",
+    }),
+  ]),
+});
 
 ReactDOM.render(
-<Context.Provider>
-<ApolloProvider client={client}>
-    <App />
-</ApolloProvider>
-</Context.Provider>,
-document.getElementById('app'))
+  <Context.Provider>
+  <ApolloProvider client={client}>
+      <App />
+  </ApolloProvider>
+  </Context.Provider>,
+  document.getElementById("app")
+);

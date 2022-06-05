@@ -1,25 +1,21 @@
 import React from "react";
 import { ImgWrapper, Img, Article } from "./styles";
 import { FavButton } from '../FavButton'
-import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { useNearScreen } from "../../hooks/useNearScreen";
 import { useToggleLikeMutation } from '../../hooks/useToggleLikeMutation'
 import { Link } from "@reach/router";
 
 const DEFAULT_IMAGE = 'https://www.housesitmatch.com/wp-content/themes/petsitter/images/job-placeholder.gif'
 
-export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
+export const PhotoCard = ({ id, liked, likes = 0, src = DEFAULT_IMAGE }) => {
     const [show, element] = useNearScreen()
     const { mutation } = useToggleLikeMutation()
-    const key = `like-${id}`
-    const [liked, setLiked] = useLocalStorage(key, false)
       const handleFavClick = () => {
-    !liked && mutation({
+     mutation({
       variables: {
         input: { id }
       }
     })
-    setLiked(!liked)
   }
     
     return (
