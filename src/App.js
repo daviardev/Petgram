@@ -9,13 +9,12 @@ import { Detail } from "./pages/Detail";
 import { Favs } from "./pages/Favs";
 import { User } from "./pages/User";
 import { NotRegisteredUser } from "./pages/NotRegisteredUser";
-import { UseForm } from "./components/UseForm";
 
 import { NavBar } from "./components/Navbar";
 
 export const App = () => {
     return (
-    <div>
+        <>
         <GlobalStyle />
         <Logo />
         <Router>
@@ -39,6 +38,6 @@ export const App = () => {
                 }
             </Context.Consumer>
         <NavBar />
-    </div>
+    </>
     )
 }

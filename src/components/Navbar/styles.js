@@ -15,7 +15,8 @@ export const Nav = styled.nav`
     right: 0;
     width: 328px;
     height: 72px;
-    background-color: #fff;
+    background-color: black;
+    opacity: 0.5;
     box-shadow: 0 8px 32px hsla(231, 44%, 45%, .2);
     margin: 0 auto;
     padding: 1.5rem .5rem;
@@ -35,10 +36,10 @@ export const A__link = styled(LinkRouter)`
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: #888;
+    color: #fff;
 
     &[aria-current] {
-    color: #000;
+    color: gray;
 
     &:after {
       ${fadeIn({ time: '0.5s' })};
