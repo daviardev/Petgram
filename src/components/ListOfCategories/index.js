@@ -1,7 +1,8 @@
 import React, { useEffect ,useState } from "react";
 import { Category } from '../Category'
 import { List, Item } from './styles'
-export const ListOfCategories = ()=>{
+
+const ListOfCategoriesComponent = ()=> {
   const [categories, setCategories] = useState([])
 
   useEffect(()=>{
@@ -37,3 +38,5 @@ export const ListOfCategories = ()=>{
     </>
   )
 }
+
+export const ListOfCategories = React.memo(ListOfCategoriesComponent)

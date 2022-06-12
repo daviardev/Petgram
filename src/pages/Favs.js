@@ -1,9 +1,11 @@
 import React from "react";
 import { RenderProp } from "../hooks/useGetFavorites";
+import { Layout } from "../components/Layout"
 
 export const Favs = () => (
     <>
-        <h1>Favs</h1>
+    <Layout title="Tus Favoritos" subtitle="Aquí encontrarás tus fotos favoritas">
         <RenderProp />
+    </Layout>
     </>
 )
